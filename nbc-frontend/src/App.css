@@ -1,0 +1,61 @@
+body {
+    background-color: #F5EAEA;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: first;
+    src: url(./assets/Fonts/alexandra/alexandra-gistela-font-1688478404-0/Alexandra-Gistela-BF64a0207d21ecc.ttf);
+}
+
+@font-face {
+    font-family: second;
+    src: url(./assets/Fonts/Playfair/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: third;
+    src: url(./assets/Fonts/SansSerifFLF/SansSerifFLF.otf);
+}
+
+
+p {
+    font-family: third;
+    font-size: 22px;
+}
+
+.mainName {
+    font-family: second;
+}
+
+.slogan {
+    font-family: first;
+    font-size: 56px;
+    line-height: 30px;
+    color: rgb(51, 2, 51);
+}
+
+.subHeader , .mainName, h2 {
+    font-family: second;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mainHeader{
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: second;
+}
+
+p{
+    line-height: 20px;
+}
+
+.aboutHeader{
+    font-size: 74px;
+    font-family: second;
+}

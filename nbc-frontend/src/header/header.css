@@ -1,0 +1,128 @@
+.topNav{
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    color: #643A6B;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 15;
+    border-bottom: #643A6B 1px solid;
+    
+}
+
+.churchLogo{
+    width: 15%;
+    height: 100%;
+}
+
+.churchLogo img{
+    width: 100%;
+    height: 90%;
+}
+
+.mobileNav{
+    display: none;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    z-index: 11;
+    margin-top: 65px;
+}
+
+.mobileNav a{
+    text-decoration: none;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobileNav .active{
+    background-color: #643A6B;
+    color: white;
+}
+
+.someLinks{
+    display: none;
+}
+.topNav a{
+    color: #643A6B;
+    text-decoration: none;
+    padding:20px;
+}
+
+.topNav a:hover{
+    border-bottom: #643A6B 2px solid;
+}
+
+.active{
+    border-bottom: #643A6B 5px solid;
+}
+.hamburger{
+    display: none;
+    position: relative;
+    z-index: 1;
+    user-select: none;
+    appearance:  none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.hamburger span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: #643A6B;
+    border-radius: 6px;
+    z-index: 1;
+    transform-origin: 0 0 ;
+    transition: 0.4s;
+}
+ .hamburger:hover span:nth-child(2){
+    transform: translateX(10px);
+    background-color: #497174;
+ }
+
+ .hamburger.is-active span:nth-child(1){
+    transform: translate(0px, -2px) rotate(45deg);
+ }
+ .hamburger.is-active span:nth-child(2){
+    opacity: 0;
+    transform: translateX(15px);
+ }
+ .hamburger.is-active span:nth-child(3){
+    transform: translate(-3px, 3px) rotate(-45deg);
+ }
+
+.hamburger.is-active:hover span{
+    background-color: #497174;
+}
+
+.shortName{
+    display: none;
+}
+
+@media(max-width: 600px){
+    .navLinks{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+    }
+    .shortName{
+        display: block;
+    }
+    .navName{
+        display: none;
+    }
+    .mobileNav{
+        display: grid;
+    }
+}
+

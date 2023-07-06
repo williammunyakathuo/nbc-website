@@ -1,0 +1,241 @@
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slideshow_buttons{
+  width: 30px;
+  height: 30px;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.slide-image {
+  width: 100%;
+  height: 500px;
+  object-fit: scale-down;
+}
+
+.slide-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Image container */
+.slide-image-container {
+  flex: 0 0 70%; /* Adjust the width as needed */
+}
+
+/* Caption container */
+.slide-caption-container {
+  flex: 0 0 25%; /* Adjust the width as needed */
+  margin-right: 50px;
+}
+
+
+
+
+/* Slide caption */
+.slide-caption {
+  margin: 20;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+}
+
+.welcomeMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 50%;
+  margin: 25px;
+  border-radius: 10px;
+}
+
+.mainName {
+  font-size: 60px;
+  font-weight: bolder;
+}
+
+
+
+.slideshow {
+  background-color: #fff;
+  padding-top: 65px;
+}
+
+
+
+.pastorsInfo{
+  background-color: white;
+  padding: 20px;
+  margin: 30px;
+  margin-top: 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pastorImage{
+  width: 200px;
+  height: 370px;
+  
+}
+.pastorsInfo div{
+  width: 30%;
+}
+
+
+
+.pastorImage img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.events{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px;
+  width: 100%;
+}
+.event{
+  background-color: white;
+  display: flex;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.event:hover{
+  box-shadow: 1px 1px   4px #643A6B;
+}
+
+.eventDate{
+  background-color: #643A6B;
+  color: white;
+  height: 100%;
+  display: flex;
+  border-radius: 10px 0 0 10px;
+  align-items: center;
+  padding: 10px;
+}
+
+.eventsAnnonce{
+  display: flex;
+  justify-content: space-around;
+}
+
+.churchAnnouncments{
+  background-color: #fff;
+  padding:15px;
+  border-radius: 10px;
+}
+
+.aboutWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 300px;
+  background: linear-gradient(to right, rgba(100, 58, 107, 1), rgba(100, 58, 107, 0));
+}
+
+.about{
+  background-image: url(../../assets/slideshow/leadersdedication.jpg);
+
+}
+
+.aboutOne, .aboutDetails{
+  width: 50%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutDetails{
+  background-color: #643A6B;
+  color: #fff;
+
+}
+
+.sermonVideo{
+  width: 100%;
+  height: 280px;
+}
+
+.sermonVideo img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.sermons{
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sermon{
+  background-color: #fff;
+  width: 30%;
+  border-radius: 10px 10px 10px 10px;
+}
+.sermon:hover{
+  box-shadow: 1px 1px  5px #643A6B;
+}
+.sermonDetails{
+  padding: 15px;
+}
+
+@media (max-width: 600px) {
+  .slide-caption {
+    font-size: 14px;
+  }
+  .pastorsInfo{
+    flex-direction: column;
+    margin: 5px;
+  }
+  .pastorsInfo div{
+    width: 100%;
+  }
+  .pastorImage{
+    width: 190px;
+    height: 200px;
+    
+  }
+  .mainName{
+    font-size: 35px;
+  }
+  .carousel-button {
+    display: none;
+  }
+
+  .welcomeMessage{
+    width: 100%;
+    margin: 5px;
+  }
+
+  .slide-container{
+    flex-direction: column;
+    height: 400px;
+  }
+}

@@ -1,0 +1,14 @@
+GET  http://localhost:8050/events
+Content-Type: application/json
+
+###
+
+GET  http://localhost:8050/announcements
+Content-Type: application/json
+
+###
+
+GET  http://localhost:8050/sermons
+Content-Type: application/json
+
+###
