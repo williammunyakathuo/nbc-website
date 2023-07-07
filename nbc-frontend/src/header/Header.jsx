@@ -19,7 +19,7 @@ const Header = () => {
                     <img src={logo} alt="logo comes here" />
                 </div>
                 <div className="navName">
-                    <h2>Nyeri Baptist Church</h2>
+                    <div className='mainHeader'>Nyeri Baptist Church</div>
                 </div>
                 <div className="shortName">
                     <h2>N.B.C</h2>

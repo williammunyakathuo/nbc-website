@@ -37,6 +37,28 @@ module.exports = {
             console.log(error)
             
         }
+    },
+
+    slidshowImages: async(req, res) =>{
+        try {
+            await sql.connect(sqlConfig);
+            const result = await sql.query`EXEC GetAllSlideshows`
+            const images = result.recordset;
+            res.json(images);
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    showLeaders: async(req, res) =>{
+        try {
+            await sql.connect(sqlConfig);
+            let results = await sql.query`EXEC GetChurchLeaders`
+            const leaders = results.recordset;
+            res.json(leaders)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     

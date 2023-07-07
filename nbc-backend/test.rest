@@ -12,3 +12,11 @@ GET  http://localhost:8050/sermons
 Content-Type: application/json
 
 ###
+
+GET  http://localhost:8050/slideshow
+Content-Type: application/json
+
+###
+
+GET  http://localhost:8050/leaders
+Content-Type: application/json

@@ -35,7 +35,7 @@ const Events = () => {
     }, [])
 
 
-    console.log(events)
+   
 
     return (
         <div className="eventsAnnonce">
