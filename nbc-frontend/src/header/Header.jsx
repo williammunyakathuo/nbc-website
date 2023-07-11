@@ -1,13 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import './header.css'
-import {  useState } from 'react';
+import { useState } from 'react';
 import logo from '../assets/logo.jpg'
+import Mobile from './headerComponents/Mobile';
 
 const Header = () => {
 
     const [isActive, setIsActive] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
- 
+
     const changeBurger = () => {
         setIsActive(!isActive);
         setIsMobile(!isMobile)
@@ -37,14 +38,10 @@ const Header = () => {
                     <span></span>
                 </button>
             </div>
-            <div className={`someLinks ${isMobile ? 'mobileNav' : '' }`}>
-                    <NavLink to='/'>Home</NavLink>
-                    <NavLink to='/aboutus'>About Us</NavLink>
-                    <NavLink to='/ministries'>Our Ministries</NavLink>
-                    <NavLink to='/contacts'>Our Contacts</NavLink>
-
-                </div>
-
+            <div className={`someLinks ${isMobile ? 'mobileNav' : ''}`}>
+                <Mobile />
+            </div>
+           
 
         </div>
     );

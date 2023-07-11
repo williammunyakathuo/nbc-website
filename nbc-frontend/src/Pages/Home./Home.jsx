@@ -8,6 +8,8 @@ import Testimonies from "./homecomponents/Testimonies";
 import Study from "./homecomponents/Study";
 import Leadership from "./homecomponents/Leadership";
 import Footer from "../../Footer/Footer";
+import Bible from "./homecomponents/Bible";
+import Fellowship from "./homecomponents/Fellowship";
 
 const Home = () => {
 
@@ -20,8 +22,11 @@ const Home = () => {
             <About/>
             <Sermons/>
             <Study/>
+            <Leadership/>
             <Events />
             <Testimonies/>
+            <Bible/>
+            <Fellowship/>
             <Footer/>
         </div>
 

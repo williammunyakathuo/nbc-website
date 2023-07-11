@@ -1,45 +1,38 @@
-import axios, { Axios } from "axios";
-import { useEffect, useState } from "react";
+import useFetch from '../../fetchSermons';
 import placeholder from '../../../assets/pastor.png'
+import { NavLink } from "react-router-dom";
 
-const sermonURL = 'http://localhost:8050/sermons'
+
 
 const Sermons = () => {
-    const [sermons, setSermons] = useState();
+    const sermonsURL = 'http://localhost:8050/sermons'
 
-    useEffect(() => {
-        const fetchSermons = async () => {
-            try {
-                const response = await axios.get(sermonURL)
-                setSermons(response.data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchSermons()
-    }, [sermonURL])
+    const { sermons, isLoading } = useFetch(sermonsURL)
 
     return (
         <div className="sermonsArea">
             <center><div className="mainHeader"> Previous sermons</div></center>
             <div className="sermons">
+                {isLoading && <p>Sermons Loading ...</p>}
+                {sermons && sermons.map((sermon) => (
 
-                {(sermons && sermons.map((sermon) => (
-                    <div className="sermon" key={sermonURL.id}>
-                        <div className="sermonVideo">
-                            <img src={placeholder} alt="placeholder" />
-                        </div>
-                        <div className="sermonDetails">
-                            <div className="mainHeader">{sermon.title}</div>
-                            <div className="subHeader">{sermon.main_verse}</div>
-                            <p>Series: {sermon.series_name}</p>
-                            <p>Preacher: {sermon.preacher}</p>
-                            <p>{sermon.teaching}</p>
-                            <p>Video Link: {sermon.media_link}</p>
-                        </div>
-
+                    <div className="sermon" key={sermon.id}>
+                        <NavLink to={`onesermon/${sermon.id}`} >
+                            <div className="sermonVideo">
+                                <img src={placeholder} alt="placeholder" />
+                            </div>
+                            <div className="sermonDetails">
+                                <div className="mainHeader">{sermon.title}</div>
+                                <div className="subHeader">{sermon.main_verse}</div>
+                                <p>Series: {sermon.series_name}</p>
+                                <p>Preacher: {sermon.preacher}</p>
+                                <p>Video Link: {sermon.media_link}</p>
+                            </div>
+                        </NavLink>
                     </div>
-                ))) || <p>Sermons Loading</p>}
+
+                ))}
+                <NavLink to='/allsermons'>See all Previous sermons</NavLink>
             </div>
         </div>
     );

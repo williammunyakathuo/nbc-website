@@ -8,7 +8,58 @@ Content-Type: application/json
 
 ###
 
+POST  http://localhost:8050/sermons
+Content-Type: application/json
+
+ {
+    "date_preached": "2023-04-05T00:00:00.000Z",
+    "preacher": " Sarah ",
+    "title": "Overcoming Fear and Doubt",
+    "main_verse": "2 Timothy 1:7",
+    "teaching": "In this teaching, we will explore strategies to overcome fear and doubt in our lives. We will learn how to rely on Gods promises and trust in His power. Join us as we discover the freedom that comes from living without fear and doubt.",
+    "duration_minutes": 50,
+    "series_name": "Victorious Living Series",
+    "location": "Hope Church",
+    "media_link": "https://example.com/sermon4"
+  }
+
+
+###
+
+PUT http://localhost:8050/sermon
+Content-Type: application/json
+
+ {
+    "id" : 7,
+    "date_preached": "2023-04-05T00:00:00.000Z",
+    "preacher": " Sarah Cummings",
+    "title": "Overcoming  Fear ",
+    "main_verse": "2 Timothy 1:7",
+    "teaching": "In this teaching, we will explore strategies to overcome fear and doubt in our lives. We will learn how to rely on Gods promises and trust in His power. Join us as we discover the freedom that comes from living without fear and doubt.",
+    "duration_minutes": 50,
+    "series_name": "Victorious Living Series",
+    "location": "Hope Church",
+    "media_link": "https://example.com/sermon4"
+  }
+
+###
+
 GET  http://localhost:8050/sermons
+Content-Type: application/json
+
+###
+
+GET  http://localhost:8050/allsermons
+Content-Type: application/json
+
+###
+
+DELETE http://localhost:8050/sermon/1005
+Content-Type: application/json
+
+###
+
+GET  http://localhost:8050/onesermon/8
 Content-Type: application/json
 
 ###
@@ -19,4 +70,9 @@ Content-Type: application/json
 ###
 
 GET  http://localhost:8050/leaders
+Content-Type: application/json
+
+###
+
+GET  http://localhost:8050/fellowships
 Content-Type: application/json

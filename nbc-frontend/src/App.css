@@ -42,7 +42,7 @@ p {
 
 .subHeader , .mainName, h2 {
     font-family: second;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -60,4 +60,9 @@ p {
 button{
     font-family: third ;
     font-size: 20px;
+}
+
+a{
+    color: black;
+    text-decoration: none;
 }

@@ -20,19 +20,20 @@ const Slideshow = () => {
 
     const carouselRef = useRef(null);
     const [slideshow, setSlideshow] = useState()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchSlideshow = async () => {
             try {
                 const response = await axios.get(slideshowURL)
                 setSlideshow(response.data)
+                setLoading(false)
             } catch (error) {
                 console.log(error)
             }
         }
         fetchSlideshow()
     }, [])
-
     const handleLoop = () => {
         const nextSlideIndex = (carouselRef.current.getCurrentSlide() + 1) % carouselRef.current.getTotalSlides();
         carouselRef.current.setCurrentSlide(nextSlideIndex);
@@ -40,7 +41,8 @@ const Slideshow = () => {
 
     return (
         <div className="slideshow">
-            <Carousel
+            {loading && <p>Slideshow loading ...</p>}
+            {slideshow &&<Carousel
                 autoPlay={true}
                 infiniteLoop={true} // Enable endless loop
                 interval={3000}
@@ -61,19 +63,19 @@ const Slideshow = () => {
                 }
             >
 
-
-                {(slideshow && slideshow.map((image) => (
+                
+                {slideshow.map((image) => (
                     <div className="slide-container" key={image.id}>
                         <div className="slide-image-container">
-                            <img src={prayer} alt="Slide 1" className="slide-image" />
+                            <img src={congregation} alt="Slide 1" className="slide-image" />
                         </div>
                         <div className="slide-caption-container">
                             <p className="slide-caption">{image.caption}</p>
                         </div>
                     </div>
                 )
-                )) || <p>Slideshow loading ...</p> }
-            </Carousel>
+                )}
+            </Carousel>}
         </div>
     );
 }

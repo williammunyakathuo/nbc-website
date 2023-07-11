@@ -55,7 +55,7 @@ const Events = () => {
             <div className="events churchAnnouncments">
                 <div className="mainHeader">Latest Church Announcments</div>
                 {(announcments && announcments.map((announcment) => (
-                    <div className="announcments">
+                    
                         <div key={announcment.AnnouncementID} className="annoncment">
                             <div className="subHeader">{announcment.Title}</div>
                             <p>Announcment: {announcment.Content}</p>
@@ -63,7 +63,7 @@ const Events = () => {
                             <p>For more info liase with : <b>{announcment.Liaison}</b></p>
                             <hr/>
                         </div>
-                    </div>
+                   
                 )
                 )) || <p>Announcments loading</p>}
             </div>

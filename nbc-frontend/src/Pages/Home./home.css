@@ -33,7 +33,7 @@
 .slide-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 /* Image container */
@@ -83,33 +83,38 @@
   padding-top: 65px;
 }
 
-
-
-.pastorsInfo{
-  background-color: white;
+.pastor{
+  margin-bottom: 25px;
+}
+.pastorIntro{
+  background-color: #fff;
   padding: 20px;
-  margin: 30px;
-  margin-top: 0;
+  width: 40%;
+  border-radius: 10px;
+}
+.pastorsInfo{
+  margin-top: 10px;
   border-radius: 10px;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pastorImage{
-  width: 200px;
-  height: 370px;
-  
-}
-.pastorsInfo div{
   width: 30%;
+  height: 390px;
+  background-image: url(../../assets/12.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 20px ;
 }
-
 
 
 .pastorImage img{
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
 }
 .events{
   display: flex;
@@ -153,14 +158,17 @@
 .aboutWrapper{
   display: flex;
   flex-wrap: wrap;
+  color: white;
   width: 100%;
   min-height: 300px;
-  background: linear-gradient(to right, rgb(97, 68, 143, 1),  rgba(100, 58, 107, 0));
+  background: linear-gradient(to right, rgb(118, 92, 161),  rgba(100, 58, 107, 0));
 }
 
 .about{
   background-image: url(../../assets/slideshow/leadersdedication.jpg);
-
+  background-position: left;
+  background-size: 55%;
+  background-repeat: no-repeat;
 }
 
 .aboutOne, .aboutDetails{
@@ -172,7 +180,7 @@
 }
 
 .aboutDetails{
-  background-color: #61448F;
+  background-color: rgb(118, 92, 161);
   color: #fff;
 
 }
@@ -192,12 +200,13 @@
   padding: 30px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .sermon{
   background-color: #fff;
   width: 30%;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px ;
 }
 .sermon:hover{
   box-shadow: 1px 1px  5px #61448F;
@@ -303,9 +312,160 @@
   gap: 10px;
   
 }
-@media (max-width: 600px) {
-  .slide-caption {
-    font-size: 14px;
+
+.leadership{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.departLeadership{
+  width: 80%;
+  display: flex;
+  max-height: fit-content;
+  box-shadow: 1px 1px 4px;
+  border-radius: 10px;
+}
+
+
+
+.leadershipContent{
+  width: 50%;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 10px 0 0 10px;
+}
+
+.leadershipImage{
+  width: 50%;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+}
+
+.leadershipImage img{
+  width: 100%;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+}
+
+.bible p{
+  width: 50%;
+}
+
+.fellowshipFull{
+  display: flex;
+  gap: 5px;
+  width: 100%;
+  background-color: #fff;
+  padding:25px;
+}
+.fellowships button{
+  background-color: #61448F;
+  color: #fff;
+  padding: 10px;
+  border: none;
+}
+
+.partOne{
+  border-right: 1px solid black;
+  padding: 20px;
+  line-height: 20px;
+  width: 50%;
+}
+.fellowship{
+  width: 100%;
+}
+
+.fellowship div{
+  width: 100%;
+}
+
+.partTwo{
+  padding: 20px;
+  width: 50%;
+}
+
+.partTwo form{
+  margin-top: 10px;
+}
+
+.partTwo input{
+  height: 35px;
+  width: 50%;
+}
+
+.partTwo input, textarea{
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  background-color: #f4eef8;
+  margin: 5px 0 10px 0;
+}
+.aboutHeader2{
+  display: none;
+}
+
+.departLeadership button{
+  background: white;
+  padding: 10px;
+  border: 0;
+  color: #61448F;
+}
+
+.singleSermon{
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.oneSermonDetails{
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.onesermon{
+  width: 80%;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.sermonImage{
+  width: 30%;
+  max-height: 300px;
+}
+
+.sermonImage img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.allSermons{
+  padding: 75px 20px 20px 20px;
+  background-color: white;
+}
+
+.single{
+  padding: 20px;
+
+}
+@media (max-width: 400px) {
+  .slide-container{
+    width: 100%;
+    display: block;
+    flex-direction: column;
+  }
+  .slide-caption-container{
+    background-color: #61448F;
+    display: none;
+  }
+  .pastor{
+    background-color: #fff;
   }
   .pastorsInfo{
     flex-direction: column;
@@ -315,11 +475,35 @@
     width: 100%;
   }
   .pastorImage{
-    width: 190px;
-    height: 200px;
-    
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .mainName{
+  .pastorImage img{
+    width: 90%;
+    height: 90%;
+  }
+  .about{
+    background-size: cover;
+
+  }
+  .aboutWrapper{
+    flex-direction: column;
+    background: none;
+  }
+  .aboutDetails,.aboutOne{
+    width: 100%;
+  }
+  .aboutHeader{
+    display: none;
+  }
+  .aboutHeader2{
+    display: block;
+    font-size: 27px;
+    font-weight: bold;
+  }
+ .mainName{
     font-size: 35px;
   }
   .carousel-button {
@@ -330,9 +514,89 @@
     width: 100%;
     margin: 5px;
   }
-
-  .slide-container{
+  .sermons{
     flex-direction: column;
-    height: 400px;
+    gap: 10px;
+  }
+  .sermon{
+    width: 100%;
+  }
+
+  .sermonsArea{
+    margin-top: 10px;
+  }
+  .study, .departLeadership{
+    flex-direction: column;
+  }
+  .leadership{
+    height: fit-content;
+  }
+  .studyImage, .studyDetails {
+    width: 100%;
+  }
+  
+
+  .studyDetails{
+    border-radius: 0 0 10px 10px;
+    padding: 15px;
+  }
+
+  .studyImage img{
+    border-radius: 10px 10px 0 0;
+
+  }
+  .departLeadership{
+    width: 100%;
+    box-shadow: none;
+  }
+  
+  .leadershipContent {
+    width: 100%;
+    border-radius: 0%;
+  }
+  .leadershipImage{display: none;}
+
+  .eventsAnnonce{
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+
+  .events{
+    width: 95%;
+    gap: 5px;
+  }
+
+  .event{
+    flex-direction: column-reverse;
+    width: 100%
+  }
+  .eventDate{
+    border-radius: 0 0 10px 10px;
+  }
+  .eventDetails{
+    padding: 10px;
+  }
+  .gallery{
+    flex-direction: column;
+  }
+  .oneImage{
+    width: 100%;
+  }
+  .fellowshipFull{
+    flex-direction: column;
+  }
+  .partOne, .partTwo{
+    width: 100%;
+    padding: 10px;
+  }
+  .partTwo input, .partTwo form{
+    width: 100%;
+  }
+  .partOne{
+    border: 0;
+  }
+  .bible p{
+    width: 90%;
   }
 }

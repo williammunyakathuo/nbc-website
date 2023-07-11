@@ -80,16 +80,133 @@ VALUES
 ('2023-01-01', 'John Doe', 'The Power of Faith', 'John 3:16', 'Teaching content goes here', 30, 'Faith Series', 'New Hope Church', 'https://example.com/sermon1'),
 ('2023-02-15', 'Jane Smith', 'Finding Joy in Adversity', 'Romans 8:28', 'Teaching content goes here', 45, 'Finding Joy Series', 'Grace Chapel', 'https://example.com/sermon2'),
 ('2023-03-20', 'Mark Johnson', 'Living a Purposeful Life', 'Ephesians 2:10', 'Teaching content goes here', 35, 'Purpose Series', 'Victory Church', 'https://example.com/sermon3');
+INSERT INTO preachings (date_preached, preacher, title, main_verse, teaching, duration_minutes, series_name, location, media_link)
+VALUES
+('2023-01-01', 'John Doe', 'The Power of Faith', 'John 3:16', 'Teaching content goes here', 30, 'Faith Series', 'New Hope Church', 'https://example.com/sermon1'),
+('2023-02-15', 'Jane Smith', 'Finding Joy in Adversity', 'Romans 8:28', 'Teaching content goes here', 45, 'Finding Joy Series', 'Grace Chapel', 'https://example.com/sermon2'),
+('2023-03-20', 'Mark Johnson', 'Living a Purposeful Life', 'Ephesians 2:10', 'Teaching content goes here', 35, 'Purpose Series', 'Victory Church', 'https://example.com/sermon3'),
+('2023-04-05', 'Sarah Adams', 'Overcoming Fear and Doubt', '2 Timothy 1:7', 'In this teaching, we will explore strategies to overcome fear and doubt in our lives. We will learn how to rely on Gods promises and trust in His power. Join us as we discover the freedom that comes from living without fear and doubt.', 50, 'Victorious Living Series', 'Hope Community Church', 'https://example.com/sermon4'),
+('2023-05-10', 'Michael Brown', 'Walking in Love', '1 Corinthians 13:4-8', 'Love is a powerful force that can transform lives and bring healing to broken relationships. In this teaching, we will explore the characteristics of love and how we can walk in love towards others. Let us embrace the call to love one another as Christ has loved us.', 55, 'Love Revolution Series', 'Grace Church', 'https://example.com/sermon5'),
+('2023-06-15', 'Emily Davis', 'Living in Gods Abundance', 'Philippians 4:19', 'God desires to bless us abundantly and provide for all our needs. In this teaching, we will discover how to align ourselves with Gods plans and experience His overflowing blessings in our lives. Let us step into a life of abundance and gratitude.', 60, 'Abundant Living Series', 'New Life Center', 'https://example.com/sermon6'),
+('2023-07-20', 'Daniel Wilson', 'Building Strong Foundations', 'Matthew 7:24-27', 'A strong foundation is essential for a successful and enduring life. In this teaching, we will learn the importance of building our lives on the solid rock of Gods Word and principles. Let us establish strong foundations that will withstand the storms of life.', 65, 'Solid Rock Series', 'Cornerstone Church', 'https://example.com/sermon7'),
+('2023-08-25', 'Olivia Taylor', 'Unlocking the Power of Prayer', 'James 5:16', 'Prayer is a powerful tool that connects us to the heart of God and releases His power into our lives. In this teaching, we will explore the principles of effective prayer and learn how to unlock its transformative power. Join us as we deepen our prayer lives and experience breakthroughs.', 70, 'Prayer Revolution Series', 'Hope Valley Church', 'https://example.com/sermon8'),
+('2023-09-30', 'William Anderson', 'Living with a Kingdom Mindset', 'Matthew 6:33', 'As followers of Christ, we are called to live with a Kingdom mindset, seeking first Gods Kingdom and His righteousness. In this teaching, we will explore what it means to prioritize Gods Kingdom in our lives and how it impacts our choices and priorities. Let us align our hearts with Gods eternal purposes.', 75, 'Kingdom Living Series', 'Victory Center', 'https://example.com/sermon9'),
+('2023-10-15', 'Sophia Wilson', 'The Transforming Power of Worship', 'Psalm 100:1-5', 'Worship is more than singing songs; it is a lifestyle of honoring and glorifying God. In this teaching, we will delve into the transformative power of worship and how it can bring us closer to God and renew our minds. Join us as we encounter Gods presence and experience personal transformation.', 80, 'Worship Encounter Series', 'Graceful Worship Center', 'https://example.com/sermon10');
+
 
 GO
 
-CREATE PROCEDURE GetAllPreachings
+CREATE  PROCEDURE GetAllofPreachings
 AS
 BEGIN
   SELECT * FROM preachings;
 END;
 
+EXEC GetAllofPreachings
+
+GO
+
+CREATE PROCEDURE DeletePreaching
+  @preachingId INT
+AS
+BEGIN
+  DELETE FROM preachings WHERE id = @preachingId;
+END;
+
+EXEC DeletePreaching @preachingId = 1004;
+
+GO
+
+CREATE PROCEDURE UpdatePreaching
+  @preachingId INT,
+  @datePreached DATE,
+  @preacher VARCHAR(255),
+  @title VARCHAR(255),
+  @mainVerse VARCHAR(255),
+  @teaching TEXT,
+  @durationMinutes INT,
+  @seriesName VARCHAR(255),
+  @location VARCHAR(255),
+  @mediaLink VARCHAR(255)
+AS
+BEGIN
+  UPDATE preachings
+  SET date_preached = @datePreached,
+      preacher = @preacher,
+      title = @title,
+      main_verse = @mainVerse,
+      teaching = @teaching,
+      duration_minutes = @durationMinutes,
+      series_name = @seriesName,
+      location = @location,
+      media_link = @mediaLink
+  WHERE id = @preachingId;
+END;
+
+EXEC UpdatePreaching
+  @preachingId = 10,
+  @datePreached = '2023-07-10',
+  @preacher = 'Jane Doe',
+  @title = 'The Power of Faith',
+  @mainVerse = 'John 3:16',
+  @teaching = 'This sermon explores the significance of faith in our lives.',
+  @durationMinutes = 45,
+  @seriesName = 'Faith Series',
+  @location = 'New City Church',
+  @mediaLink = 'https://example.com/sermon123';
+
+GO
+
+CREATE PROCEDURE CreatePreaching
+  @datePreached DATE,
+  @preacher VARCHAR(255),
+  @title VARCHAR(255),
+  @mainVerse VARCHAR(255),
+  @teaching TEXT,
+  @durationMinutes INT,
+  @seriesName VARCHAR(255),
+  @location VARCHAR(255),
+  @mediaLink VARCHAR(255)
+AS
+BEGIN
+  INSERT INTO preachings (date_preached, preacher, title, main_verse, teaching, duration_minutes, series_name, location, media_link)
+  VALUES (@datePreached, @preacher, @title, @mainVerse, @teaching, @durationMinutes, @seriesName, @location, @mediaLink);
+END;
+
+EXEC CreatePreaching
+  @datePreached = '2023-07-10',
+  @preacher = 'Jane Doe',
+  @title = 'The Power of Faith',
+  @mainVerse = 'John 3:16',
+  @teaching = 'This sermon explores the significance of faith in our lives.',
+  @durationMinutes = 45,
+  @seriesName = 'Faith Series',
+  @location = 'New City Church',
+  @mediaLink = 'https://example.com/sermon123';
+
+
+
+GO
+
+CREATE  PROCEDURE GetAllPreachings
+AS
+BEGIN
+  SELECT TOP 3 * FROM preachings;
+END;
+
 EXEC GetAllPreachings;
+
+
+GO
+
+CREATE PROCEDURE GetSermonByID
+  @id INT
+AS
+BEGIN
+  SELECT * FROM preachings WHERE id = @id;
+END;
+
+EXEC GetSermonByID @id = 2;
 
 
 GO
@@ -151,6 +268,8 @@ VALUES
   (10, 'Stephanie Clark', 'Female', 'Children''s Minister', 'Children are the hands by which we take hold of heaven.');
 
 
+
+
 go
 -- Create a stored procedure to display leaders with gender balance and limit to 4
 CREATE PROCEDURE GetChurchLeaders
@@ -165,3 +284,68 @@ END;
 EXEC GetChurchLeaders
 
 GO
+
+CREATE TABLE Fellowships (
+  FellowshipID INT PRIMARY KEY,
+  FellowshipName VARCHAR(100),
+  Description VARCHAR(200),
+  Location VARCHAR(100),
+  Leader VARCHAR(100)
+);
+
+INSERT INTO Fellowships (FellowshipID, FellowshipName, Description, Location, Leader)
+VALUES
+  (1, 'Kiawara Fellowship', 'A fellowship focused on community outreach and evangelism.', 'Kiawara', 'John Smith'),
+  (2, 'BV Fellowship', 'A fellowship dedicated to Bible study and spiritual growth.', 'BV', 'Jane Doe'),
+  (3, 'Kiganjo Fellowship', 'A fellowship for young adults seeking fellowship and discipleship.', 'Kiganjo', 'Michael Johnson'),
+  -- Add two more entries as needed
+  (4, 'Another Fellowship', 'Description of another fellowship.', 'Location of another fellowship', 'Leader of another fellowship'),
+  (5, 'Yet Another Fellowship', 'Description of yet another fellowship.', 'Location of yet another fellowship', 'Leader of yet another fellowship');
+
+GO
+
+CREATE PROCEDURE ViewAllFellowships
+AS
+BEGIN
+  SELECT *
+  FROM Fellowships;
+END;
+
+EXEC ViewAllFellowships
+
+GO
+
+ALTER TABLE Fellowships
+ADD Time TIME,
+    DayOfWeek VARCHAR(20);
+
+UPDATE Fellowships
+SET Time = '19:00:00', DayOfWeek = 'Wednesday'
+WHERE FellowshipName = 'Kiawara Fellowship';
+
+UPDATE Fellowships
+SET Time = '18:30:00', DayOfWeek = 'Thursday'
+WHERE FellowshipName = 'BV Fellowship';
+
+UPDATE Fellowships
+SET Time = '20:00:00', DayOfWeek = 'Friday'
+WHERE FellowshipName = 'Kiganjo Fellowship';
+
+UPDATE Fellowships
+SET Time = '17:30:00', DayOfWeek = 'Monday'
+WHERE FellowshipName = 'Another Fellowship';
+
+UPDATE Fellowships
+SET Time = '16:00:00', DayOfWeek = 'Tuesday'
+WHERE FellowshipName = 'Yet Another Fellowship';
+
+GO
+
+CREATE PROCEDURE ViewFellowships
+AS
+BEGIN
+  SELECT TOP 2 *
+  FROM Fellowships;
+END;
+
+EXEC ViewFellowships

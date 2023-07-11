@@ -3,9 +3,10 @@ const About = () => {
         <div className="about">
             <div className="aboutWrapper">
                 <div className="aboutOne">
-                    <div className="aboutHeader">About Nyeri Baptist church</div>
+                    <div className="aboutHeader">About Nyeri Baptist Church</div>
                 </div>
                 <div className="aboutDetails">
+                <div className="aboutHeader2">About Nyeri Baptist Church</div>
                     <div className="coreValues">
                         <div className="subHeader">Our core values</div>
                         <ul>
