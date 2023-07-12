@@ -3,12 +3,12 @@ import pastor from '../../../assets/slideshow/pasi.jpg'
 const Pastor = () => {
     return ( 
         <div className="pastor">
-            <center><div className="mainHeader">Welcome Message</div></center>
             <div className="pastorsInfo">
                 <div className="pastorImage">
                     <img src={pastor} alt="pastor" />
                 </div>
                 <div className="pastorIntro">
+                <div className="mainHeader">Welcome Message</div>
                     <h2>PST. PETER WANJOHI KAMAU</h2>
                     <p>Senior pastor<br/>
                     Nyeri baptist Church<br/></p>

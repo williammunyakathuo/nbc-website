@@ -32,7 +32,7 @@ const Sermons = () => {
                     </div>
 
                 ))}
-                <NavLink to='/allsermons'>See all Previous sermons</NavLink>
+                <NavLink to='/allsermons' className='extraLinks'>See all Previous sermons</NavLink>
             </div>
         </div>
     );

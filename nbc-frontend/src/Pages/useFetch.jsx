@@ -1,12 +1,13 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const useFetch = (url) => {
 
     const [sermon, setSermon] = useState();
     const [isPending, setisPending] = useState(true)
 
-    axios
+    useEffect(()=>{
+        axios
         .get(url)
         .then(response => {
             setSermon(response.data)
@@ -15,6 +16,9 @@ const useFetch = (url) => {
         .catch(error => {
             console.log(error)
         })
+    }, [url])
+
+   
 
 
 

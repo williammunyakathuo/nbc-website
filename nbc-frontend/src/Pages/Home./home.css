@@ -147,6 +147,7 @@
 .eventsAnnonce{
   display: flex;
   justify-content: space-around;
+  margin-top: 35px;
 }
 
 .churchAnnouncments{
@@ -207,6 +208,7 @@
   background-color: #fff;
   width: 30%;
   border-radius: 10px ;
+  box-shadow: 1px 1px 2px #333;
 }
 .sermon:hover{
   box-shadow: 1px 1px  5px #61448F;
@@ -239,7 +241,7 @@
   width: 100%;
 }
 
-.testimonies, .studies{
+.bible{
   background-image: url(../../assets/6.jpg);
   background-position: center;
   background-size: cover;
@@ -247,19 +249,40 @@
   background-attachment: fixed;
   margin-bottom: 50px;
   height: fit-content;
+  padding: 30px;
 }
 
+.bibleQuote{
+  padding: 20px;
+  width: 60%;
+  background-color: rgba(244, 238, 248, 0.3);
+  border-right: 8px solid #61448F ;
+  border-left: 8px solid #61448F ;
+}
 .studies{
   display: flex;
-  justify-content: center;
-  padding: 70px 0;
+  flex-direction: column;
+  gap: 70px;
+  align-items: center;
   height: fit-content;
+  width: 100%;
+}
+
+.extraLinks{
+  color: #61448F;
+  padding: 20px;
+}
+
+.extraLinks:hover{
+  font-size: larger;
 }
 
 .study{
   width: 80%;
   height: 100%;
   display: flex;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px #61448F;
 }
 
 .studyDetails, .studyImage{
@@ -322,8 +345,8 @@
 .departLeadership{
   width: 80%;
   display: flex;
-  max-height: fit-content;
-  box-shadow: 1px 1px 4px;
+  height: fit-content;
+  box-shadow: 1px 1px 4px #61448F;
   border-radius: 10px;
 }
 
@@ -348,9 +371,6 @@
   border-radius: 0 10px 10px 0;
 }
 
-.bible p{
-  width: 50%;
-}
 
 .fellowshipFull{
   display: flex;
@@ -449,7 +469,12 @@
   padding: 75px 20px 20px 20px;
   background-color: white;
 }
-
+.sermonsArea{
+  background-color: #fff;
+  margin-top: 35px;
+  width: fit-content;
+  padding: 20px;
+}
 .single{
   padding: 20px;
 

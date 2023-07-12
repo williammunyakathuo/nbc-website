@@ -6,10 +6,9 @@ import About from "./homecomponents/About";
 import Sermons from "./homecomponents/Sermons";
 import Testimonies from "./homecomponents/Testimonies";
 import Study from "./homecomponents/Study";
-import Leadership from "./homecomponents/Leadership";
-import Footer from "../../Footer/Footer";
 import Bible from "./homecomponents/Bible";
 import Fellowship from "./homecomponents/Fellowship";
+import Verse from "./homecomponents/Verse";
 
 const Home = () => {
 
@@ -21,13 +20,12 @@ const Home = () => {
             <Pastor/>
             <About/>
             <Sermons/>
+            <Verse/>
             <Study/>
-            <Leadership/>
             <Events />
             <Testimonies/>
             <Bible/>
             <Fellowship/>
-            <Footer/>
         </div>
 
     );
