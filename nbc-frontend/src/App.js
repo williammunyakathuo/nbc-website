@@ -9,6 +9,8 @@ import Ministries from './Pages/Ministries/Ministries';
 import Footer from './Footer/Footer';
 import Onesermons from './Pages/Home./homecomponents/Onesermon';
 import Allsermons from './Pages/Home./homecomponents/Allsermons';
+import OneEvent from './Pages/Home./homecomponents/Oneevent';
+import Allevents from './Pages/Home./homecomponents/Allevents';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path='/allsermons' element={<Allsermons />}>
           <Route path='onesermon/:id' element={<Onesermons />}></Route>
         </Route>
+        <Route path='/oneevent/:id' element={<OneEvent/>}></Route>
+        <Route path='/events' element={<Allevents/>}></Route>
       </Routes>
       <Footer />
     </div>

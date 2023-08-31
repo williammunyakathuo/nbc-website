@@ -5,7 +5,6 @@ const Welcome = () => {
                 <div className="mainName">Nyeri Baptist Church</div>
                 <div className="slogan">Where everybody is somebody</div>
             </div>
-
         </div>
     );
 }

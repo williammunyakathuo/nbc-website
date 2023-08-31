@@ -44,8 +44,8 @@ const Slideshow = () => {
             {loading && <p>Slideshow loading ...</p>}
             {slideshow &&<Carousel
                 autoPlay={true}
-                infiniteLoop={true} // Enable endless loop
-                interval={3000}
+                infiniteLoop={true} 
+                interval={4000}
                 showThumbs={false}
                 renderArrowPrev={(onClickHandler, hasPrev, label) =>
                     hasPrev && (

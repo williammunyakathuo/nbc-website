@@ -32,6 +32,16 @@ EXECUTE GetAllEvents;
 
 GO
 
+CREATE PROCEDURE getOneEvent
+@EventID INT
+AS
+BEGIN
+  SELECT * FROM Events WHERE EventID = @EventID;
+END
+
+EXEC getOneEvent @EventID = 2
+  GO
+
 CREATE TABLE ChurchAnnouncements (
     AnnouncementID INT IDENTITY(1,1) PRIMARY KEY,
     Title VARCHAR(100),
@@ -244,108 +254,154 @@ EXEC GetAllSlideshows;
 
 GO
 
--- Create the ChurchLeaders table
-CREATE TABLE ChurchLeaders (
-  leaderID INT PRIMARY KEY,
-  fullName VARCHAR(100),
-  gender VARCHAR(10),
-  position VARCHAR(100),
-  favoriteQuote VARCHAR(200)
+CREATE TABLE baptistChurchMembers (
+    member_id INT IDENTITY(1, 1) PRIMARY KEY,
+    full_name VARCHAR(100),
+    dob DATE,
+    age AS DATEDIFF(YEAR, dob, GETDATE()),
+    gender VARCHAR(10),
+    fellowship VARCHAR(100),
+    ministry VARCHAR(100),
+    department VARCHAR(100),
+    contact_number VARCHAR(20),
+    email VARCHAR(100),
+    address VARCHAR(255)
 );
 
--- Insert 10 leader records
-INSERT INTO ChurchLeaders (leaderID, fullName, gender, position, favoriteQuote)
+INSERT INTO baptistChurchMembers (full_name, dob, gender, fellowship, ministry, department, contact_number, email, address)
 VALUES
-  (1, 'John Doe', 'Male', 'Pastor', 'The best way to predict the future is to create it.'),
-  (2, 'Jane Smith', 'Female', 'Deacon', 'Be the change you wish to see in the world.'),
-  (3, 'Michael Johnson', 'Male', 'Elder', 'Success is not final, failure is not fatal: It is the courage to continue that counts.'),
-  (4, 'Emily Davis', 'Female', 'Youth Minister', 'The future belongs to those who believe in the beauty of their dreams.'),
-  (5, 'Robert Wilson', 'Male', 'Worship Leader', 'Music is the universal language of mankind.'),
-  (6, 'Sarah Thompson', 'Female', 'Sunday School Teacher', 'Education is the most powerful weapon which you can use to change the world.'),
-  (7, 'David Brown', 'Male', 'Missions Coordinator', 'We make a living by what we get, but we make a life by what we give.'),
-  (8, 'Michelle Martinez', 'Female', 'Community Outreach', 'In a world where you can be anything, be kind.'),
-  (9, 'Daniel Lee', 'Male', 'Finance Manager', 'The only way to do great work is to love what you do.'),
-  (10, 'Stephanie Clark', 'Female', 'Children''s Minister', 'Children are the hands by which we take hold of heaven.');
+    ('John Doe', '1990-05-15', 'Male', 'Youth Fellowship', 'Music Ministry', 'Worship Department', '1234567890', 'johndoe@example.com', '123 Main St'),
+    ('Jane Smith', '1988-10-25', 'Female', 'Women Fellowship', 'Children Ministry', 'Education Department', '9876543210', 'janesmith@example.com', '456 Elm St'),
+    ('Mark Johnson', '1995-03-12', 'Male', 'Men Fellowship', 'Outreach Ministry', 'Evangelism Department', '7894561230', 'markjohnson@example.com', '789 Oak Ave'),
+    ('Sarah Williams', '1992-07-20', 'Female', 'Youth Fellowship', 'Prayer Ministry', 'Discipleship Department', '6547893210', 'sarahwilliams@example.com', '321 Pine St'),
+    ('Michael Davis', '1985-09-05', 'Male', 'Women Fellowship', 'Missions Ministry', 'Social Services Department', '9871234560', 'michaeldavis@example.com', '456 Walnut Ave'),
+    ('Emily Wilson', '1993-12-28', 'Female', 'Men Fellowship', 'Media Ministry', 'Technical Department', '3219876540', 'emilywilson@example.com', '987 Cedar St'),
+    ('David Thompson', '1997-06-10', 'Male', 'Youth Fellowship', 'Youth Ministry', 'Youth Department', '6541237890', 'davidthompson@example.com', '654 Maple Ave'),
+    ('Sophia Martinez', '1991-02-14', 'Female', 'Women Fellowship', 'Finance Ministry', 'Finance Department', '7893216540', 'sophiamartinez@example.com', '123 Elm St'),
+    ('Matthew Taylor', '1989-11-02', 'Male', 'Men Fellowship', 'Hospitality Ministry', 'Hospitality Department', '4567891230', 'matthewtaylor@example.com', '987 Oak Ave'),
+    ('Olivia Clark', '1994-08-17', 'Female', 'Youth Fellowship', 'Drama Ministry', 'Creative Arts Department', '3214567890', 'oliviaclark@example.com', '654 Pine St'),
+    ('Robert Johnson', '1991-06-30', 'Male', 'Men Fellowship', 'Teaching Ministry', 'Education Department', '7896541230', 'robertjohnson@example.com', '789 Walnut Ave'),
+    ('Laura Adams', '1987-04-12', 'Female', 'Women Fellowship', 'Counseling Ministry', 'Pastoral Care Department', '6543217890', 'lauraadams@example.com', '321 Cedar St'),
+    ('Daniel Wilson', '1993-09-18', 'Male', 'Youth Fellowship', 'Sports Ministry', 'Recreation Department', '7890123456', 'danielwilson@example.com', '123 Oak Ave'),
+    ('Grace Thompson', '1996-02-08', 'Female', 'Women Fellowship', 'Praise and Worship Ministry', 'Music Department', '9876543210', 'gracethompson@example.com', '456 Pine St'),
+    ('Jonathan Smith', '1992-11-25', 'Male', 'Men Fellowship', 'Technical Ministry', 'Technical Department', '6543217890', 'jonathansmith@example.com', '789 Elm St'),
+    ('Rachel Davis', '1990-07-14', 'Female', 'Youth Fellowship', 'Youth Ministry', 'Youth Department', '7890123456', 'racheldavis@example.com', '321 Maple Ave'),
+    ('Nathan Wilson', '1994-04-30', 'Male', 'Men Fellowship', 'Media Ministry', 'Media Department', '0123456789', 'nathanwilson@example.com', '654 Cedar St'),
+    ('Emily Johnson', '1988-01-20', 'Female', 'Women Fellowship', 'Children Ministry', 'Education Department', '7896543210', 'emilyjohnson@example.com', '789 Oak Ave'),
+    ('David Smith', '1995-09-08', 'Male', 'Youth Fellowship', 'Outreach Ministry', 'Evangelism Department', '3210123456', 'davidsmith@example.com', '987 Pine St'),
+    ('Olivia Adams', '1993-03-17', 'Female', 'Women Fellowship', 'Prayer Ministry', 'Discipleship Department', '6547890123', 'oliviaadams@example.com', '123 Walnut Ave')
+   
+GO
+
+CREATE PROCEDURE ViewAllMembers
+AS
+BEGIN
+    SELECT *
+    FROM baptistChurchMembers;
+END;
+EXEC ViewAllMembers;
+
+
+GO
 
 
 
+-- Create Ministries table
+-- Create Ministries table
+CREATE TABLE churchMinistries (
+    ministry_id INT IDENTITY(1, 1) PRIMARY KEY,
+    ministry_name VARCHAR(100),
+    ministry_description VARCHAR(255),
+    chairperson INT,
+    vice_chair INT,
+    secretary INT,
+    vice_secretary INT,
+    treasurer INT,
+    organizing_secretary INT,
+    payer_coordinator INT,
+    FOREIGN KEY (chairperson) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (vice_chair) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (secretary) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (vice_secretary) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (treasurer) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (organizing_secretary) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (payer_coordinator) REFERENCES baptistChurchMembers(member_id)
+);
+
+INSERT INTO churchMinistries (ministry_name, ministry_description, chairperson, vice_chair, secretary, vice_secretary, treasurer, organizing_secretary, payer_coordinator)
+VALUES
+    ('Worship Ministry', 'Responsible for leading worship during church services', 1, 2, 3, 4, 5, 6, 7),
+    ('Children Ministry', 'Focuses on the spiritual development of children', 8, 9, 10, 11, 12, 13, 14),
+    ('Outreach Ministry', 'Engages in evangelism and community outreach programs', 15, 16, 17, 18, 19, 20, 1),
+    ('Youth Ministry', 'Ministry dedicated to serving the needs of the youth', 2, 3, 4, 5, 6, 7, 8),
+    ('Prayer Ministry', 'Focuses on fostering a culture of prayer within the church', 9, 10, 11, 12, 13, 14, 15);
+
+-- Create Fellowships table
+CREATE TABLE churchFellowships (
+    fellowship_id INT IDENTITY(1, 1) PRIMARY KEY,
+    fellowship_name VARCHAR(100),
+    fellowship_description VARCHAR(255),
+    fellowship_location VARCHAR(100),
+    chairperson INT,
+    assistant_chair INT,
+    secretary INT,
+    treasurer INT,
+    organizer INT,
+    coordinator INT,
+    FOREIGN KEY (chairperson) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (assistant_chair) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (secretary) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (treasurer) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (organizer) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (coordinator) REFERENCES baptistChurchMembers(member_id)
+);
+
+
+INSERT INTO churchFellowships (fellowship_name, fellowship_description, fellowship_location, chairperson, assistant_chair, secretary, treasurer, organizer, coordinator)
+VALUES
+    ('Young Adults Fellowship', 'Fellowship for young adults aged 18-30', 'Main Hall', 1, 2, 3, 4, 5, 6),
+    ('Women Fellowship', 'Fellowship for women of all ages', 'Meeting Room 1', 7, 8, 9, 10, 11, 12),
+    ('Men Fellowship', 'Fellowship for men of all ages', 'Meeting Room 2', 13, 14, 15, 16, 17, 18),
+    ('Youth Fellowship', 'Fellowship for teenagers and young adults', 'Youth Center', 19, 20, 1, 2, 3, 4),
+    ('Seniors Fellowship', 'Fellowship for senior members', 'Community Hall', 5, 6, 7, 8, 9, 10);
 
 go
--- Create a stored procedure to display leaders with gender balance and limit to 4
-CREATE PROCEDURE GetChurchLeaders
+CREATE PROCEDURE viewFellowships
 AS
 BEGIN
-  SELECT TOP 4 *
-  FROM ChurchLeaders
-  ORDER BY NEWID();
+    SELECT *
+    FROM churchFellowships;
 END;
-
-
-EXEC GetChurchLeaders
-
+EXEC ViewAllMembers;
 GO
 
-CREATE TABLE Fellowships (
-  FellowshipID INT PRIMARY KEY,
-  FellowshipName VARCHAR(100),
-  Description VARCHAR(200),
-  Location VARCHAR(100),
-  Leader VARCHAR(100)
+-- Create Departments table
+CREATE TABLE churchDepartments (
+    department_id INT IDENTITY(1, 1) PRIMARY KEY,
+    department_name VARCHAR(100),
+    department_description VARCHAR(255),
+    chairperson INT,
+    assistant_chairperson INT,
+    secretary INT,
+    assistant_secretary INT,
+    treasurer INT,
+    organizer INT,
+    coordinator INT,
+    FOREIGN KEY (chairperson) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (assistant_chairperson) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (secretary) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (assistant_secretary) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (treasurer) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (organizer) REFERENCES baptistChurchMembers(member_id),
+    FOREIGN KEY (coordinator) REFERENCES baptistChurchMembers(member_id)
 );
 
-INSERT INTO Fellowships (FellowshipID, FellowshipName, Description, Location, Leader)
+INSERT INTO churchDepartments (department_name, department_description, chairperson, assistant_chairperson, secretary, assistant_secretary, treasurer, organizer, coordinator)
 VALUES
-  (1, 'Kiawara Fellowship', 'A fellowship focused on community outreach and evangelism.', 'Kiawara', 'John Smith'),
-  (2, 'BV Fellowship', 'A fellowship dedicated to Bible study and spiritual growth.', 'BV', 'Jane Doe'),
-  (3, 'Kiganjo Fellowship', 'A fellowship for young adults seeking fellowship and discipleship.', 'Kiganjo', 'Michael Johnson'),
-  -- Add two more entries as needed
-  (4, 'Another Fellowship', 'Description of another fellowship.', 'Location of another fellowship', 'Leader of another fellowship'),
-  (5, 'Yet Another Fellowship', 'Description of yet another fellowship.', 'Location of yet another fellowship', 'Leader of yet another fellowship');
+    ('Worship Department', 'Responsible for leading worship services', 1, 2, 3, 4, 5, 6, 7),
+    ('Children''s Department', 'Handles activities and programs for children', 8, 9, 10, 11, 12, 13, 14),
+    ('Outreach Department', 'Engages in community outreach and evangelism', 15, 16, 17, 18, 19, 20, 1),
+    ('Education Department', 'Oversees teaching and discipleship programs', 2, 3, 4, 5, 6, 7, 8),
+    ('Administration Department', 'Manages administrative tasks and church operations', 9, 10, 11, 12, 13, 14, 15);
 
-GO
 
-CREATE PROCEDURE ViewAllFellowships
-AS
-BEGIN
-  SELECT *
-  FROM Fellowships;
-END;
-
-EXEC ViewAllFellowships
-
-GO
-
-ALTER TABLE Fellowships
-ADD Time TIME,
-    DayOfWeek VARCHAR(20);
-
-UPDATE Fellowships
-SET Time = '19:00:00', DayOfWeek = 'Wednesday'
-WHERE FellowshipName = 'Kiawara Fellowship';
-
-UPDATE Fellowships
-SET Time = '18:30:00', DayOfWeek = 'Thursday'
-WHERE FellowshipName = 'BV Fellowship';
-
-UPDATE Fellowships
-SET Time = '20:00:00', DayOfWeek = 'Friday'
-WHERE FellowshipName = 'Kiganjo Fellowship';
-
-UPDATE Fellowships
-SET Time = '17:30:00', DayOfWeek = 'Monday'
-WHERE FellowshipName = 'Another Fellowship';
-
-UPDATE Fellowships
-SET Time = '16:00:00', DayOfWeek = 'Tuesday'
-WHERE FellowshipName = 'Yet Another Fellowship';
-
-GO
-
-CREATE PROCEDURE ViewFellowships
-AS
-BEGIN
-  SELECT TOP 2 *
-  FROM Fellowships;
-END;
-
-EXEC ViewFellowships

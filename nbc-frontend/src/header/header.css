@@ -7,7 +7,7 @@
     justify-content: space-around;
     position: fixed;
     z-index: 15;
-    border-bottom: #643A6B 1px solid;
+    box-shadow: 1px 1px 2px #643A6B ;
     
 }
 
@@ -47,17 +47,19 @@
     display: none;
 }
 .topNav a{
-    color: #643A6B;
     text-decoration: none;
-    padding:20px;
+    padding:15px;
+    font-size: 22px;
 }
 
 .topNav a:hover{
     border-bottom: #643A6B 2px solid;
+    color: #643A6B;
 }
 
 .active{
-    border-bottom: #643A6B 5px solid;
+    border-bottom: #643A6B 2px solid;
+    color: #643A6B;
 }
 .hamburger{
     display: none;

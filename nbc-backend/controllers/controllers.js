@@ -16,6 +16,18 @@ module.exports = {
         }
     },
 
+    viewOneEvent:  async(req,res) =>{
+        const {id} = req.params;
+        try {
+            await sql.connect(sqlConfig) 
+            const result = await sql.query`EXEC getOneEvent @EventID = ${id}`
+            let event = result.recordset;
+            res.json(event)
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     viewAnnounce: async (req, res) => {
         try {
             await sql.connect(sqlConfig);

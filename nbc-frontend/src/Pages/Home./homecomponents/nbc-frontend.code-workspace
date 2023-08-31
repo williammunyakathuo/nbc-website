@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../nbc-backend"
+		}
+	],
+	"settings": {
+		"dataworkspace.excludedProjects": [
+			"nbc-frontend/nbcchurch/nbcchurch.sqlproj"
+		]
+	},
+	"launch": {
+		"configurations": [
+			{
+				"type": "chrome",
+				"name": "http://ocalhost:3000/onesermon/1008",
+				"request": "launch",
+				"url": "http://ocalhost:3000/onesermon/1008"
+			}
+		]
+	}
+}

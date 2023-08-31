@@ -27,11 +27,11 @@ const Fellowship = () => {
                     {
                         fellowships && fellowships.map((fellowship) => (
                             <div className="fellowship" key={fellowship.FellowshipID}>
-                                <div className="subHeader">{fellowship.FellowshipName}</div>
-                                <p>Venue :{fellowship.Location}</p>
-                                <p>On : {fellowship.DayOfWeek} weekly</p>
-                                <b>at : {fellowship.Time}</b>
-                                <p>Liason : {fellowship.Leader}</p>
+                                <div className="subHeader">{fellowship.fellowship_name}</div>
+                                <p>Venue :{fellowship.fellowship_location}</p>
+                                <p>On : {fellowship.fellowship_description} weekly</p>
+                                {/* <b>at : {fellowship.Time}</b>
+                                <p>Liason : {fellowship.Leader}</p> */}
                                 <hr></hr>
                             </div>
                         ))

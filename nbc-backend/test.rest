@@ -3,6 +3,11 @@ Content-Type: application/json
 
 ###
 
+GET  http://localhost:8050/event/1
+Content-Type: application/json
+
+###
+
 GET  http://localhost:8050/announcements
 Content-Type: application/json
 

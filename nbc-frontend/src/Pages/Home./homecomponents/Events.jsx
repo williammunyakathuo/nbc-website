@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 const eventsURL = 'http://localhost:8050/events'
 const announceURL = 'http://localhost:8050/announcements'
 
@@ -19,7 +20,7 @@ const Events = () => {
         }
 
         fetchEvents()
-    }, [eventsURL])
+    })
 
     useEffect(() => {
         const fetchAnnouncment = async () => {
@@ -42,6 +43,7 @@ const Events = () => {
             <div className="events">
                 <div className="mainHeader">UPCOMING EVENTS</div>
                 {(events && events.map((event) => (
+                    <NavLink to={`/oneevent/${event.EventID}`}>
                     <div key={event.EventID} className="event">
                         <div className="eventDate">{event.EventDate}</div>
                         <div className="eventDetails">
@@ -49,7 +51,8 @@ const Events = () => {
                             <p><b>The venue will be at :{event.Location}</b></p>
                             <p>Organized by:{event.Organizer}</p>
                         </div>
-                    </div>)
+                    </div>
+                    </NavLink>)
                 )) || <p>Events loading</p>}
             </div>
             <div className="events churchAnnouncments">
@@ -66,6 +69,7 @@ const Events = () => {
                    
                 )
                 )) || <p>Announcments loading</p>}
+               <NavLink to='/events'>All events and announcements</NavLink>
             </div>
         </div>
     );

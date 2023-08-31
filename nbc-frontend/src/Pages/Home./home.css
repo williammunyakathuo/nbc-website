@@ -66,8 +66,6 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  width: 50%;
-  margin: 25px;
   border-radius: 10px;
 }
 
@@ -84,31 +82,29 @@
 }
 
 .pastor{
-  margin-bottom: 25px;
+  margin: 35px 0 ;
+  
 }
 .pastorIntro{
   background-color: #fff;
   padding: 20px;
-  width: 40%;
+  width: 70%;
   border-radius: 10px;
 }
 .pastorsInfo{
   margin-top: 10px;
+  padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-image: url(../../assets/12.png);
+   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.pastorImage{
-  width: 30%;
-  height: 390px;
-  background-image: url(../../assets/12.png);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding: 20px ;
-}
+
 
 
 .pastorImage img{
@@ -297,8 +293,6 @@
   flex-direction: column;
 }
 
-
-
 .studyDetails button, .aboutDetails button{
   border: none;
   padding: 10px;
@@ -345,7 +339,7 @@
 .departLeadership{
   width: 80%;
   display: flex;
-  height: fit-content;
+  height: 400px;
   box-shadow: 1px 1px 4px #61448F;
   border-radius: 10px;
 }

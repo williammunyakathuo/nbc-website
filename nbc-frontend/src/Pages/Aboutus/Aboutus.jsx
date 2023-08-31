@@ -1,4 +1,3 @@
-import About from "../Home./homecomponents/About";
 import Intro from "./aboutComponents/Intro";
 import Testimonies from '../Home./homecomponents/Testimonies'
 import './About.css'
@@ -6,7 +5,6 @@ function Aboutus() {
     return (
         <div className="aboutus">
             <Intro />
-            <About />
             <div className="moreAbout lilIntro">
                 <div className="aboutSection">
                     <div className="mainHeader">

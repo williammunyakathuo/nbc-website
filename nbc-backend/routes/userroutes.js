@@ -10,7 +10,8 @@ const { viewEvents,
      viewAllSermons,
      deleteSermon, 
      createSermons,
-     editSermon} = require('../controllers/controllers')
+     editSermon,
+     viewOneEvent} = require('../controllers/controllers')
 
 router.get('/events', viewEvents)
 router.get('/announcements', viewAnnounce)
@@ -23,6 +24,7 @@ router.get('/allsermons', viewAllSermons)
 router.delete('/sermon/:id', deleteSermon)
 router.post('/sermons', createSermons)
 router.put('/sermon', editSermon)
+router.get('/event/:id', viewOneEvent);
 
 
 module.exports = router

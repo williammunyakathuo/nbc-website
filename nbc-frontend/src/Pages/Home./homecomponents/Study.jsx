@@ -19,6 +19,7 @@ const Study = () => {
                     <button>Learn More ...</button>
                 </div>
             </div>
+
             <div className="departLeadership">
                 <div className="leadershipContent">
                     <div className="subHeader">
@@ -34,6 +35,7 @@ const Study = () => {
                     <img src={team} alt="leadership" />
                 </div>
             </div>
+            
             <div className="study">
                 <div className="studyImage">
                     <img src={study} alt="bible" />
